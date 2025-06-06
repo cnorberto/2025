@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema de Biblioteca</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav>
+    <button onclick="abrirAba('livros')">Livros 📚</button>
+    <button onclick="abrirAba('usuarios')">Usuários 👥</button>
+    <button onclick="abrirAba('emprestimos')">Empréstimos 🔄</button>
+    <button onclick="abrirAba('relatorios')">Relatórios 📈</button>
+  </nav>
+
+  <main>
+    <!-- Aba Livros -->
+    <section id="livros" class="aba ativo">
+      <h2>Cadastro de Livros 📚</h2>
+      <form action="cadastrar_livro.php" method="POST">
+        <label for="id_livro">ID do Livro</label>
+        <input type="number" name="id_livro" id="id_livro"  placeholder="ID único (opcional)"required>
+        <label for="titulo">Título</label>
+        <input type="text" name="titulo" id="titulo"placeholder="Ex: Matematica" required>
+        <label for="autor">Autor</label>
+        <input type="text" name="autor" id="autor"placeholder="Ex: Dr.Max" required>
+        <label for="genero">Gênero</label>
+        <input type="text" name="genero" id="genero"placeholder="Ex: Romance" required>
+        <label for="ano">Ano</label>
+        <input type="number" name="ano" id="ano"placeholder="Ex: 1999" required>
+        <label for="status">Status</label>
+        <select id="status" name="status" required>
+        <option value="">Selecione o status</option>
+        <option value="disponivel">Disponível</option>
+        <option value="emprestado">Emprestado</option>
+        </select>
+        <button type="submit">Cadastrar Livro 📚</button>
+      </form>
+      <div id="mensagemLivro"></div>
+
+
+    </section>
+
+    <!-- Aba Usuários -->
+    <section id="usuarios" class="aba">
+      <h2>Cadastro de Usuários 👥</h2>
+      <form action="cadastrar_usuario.php" method="POST">
+        <label for="id_usuario">ID do Usuário</label>
+        <input type="number" name="id_usuario" id="id_usuario" placeholder="ID único (opcional)" required>
+        <label for="nome">Nome Completo</label>
+        <input type="text" name="nome" id="nome" placeholder="Carlito Jorge" required>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="*****@unisced.edu.mz/@gmail.com" required>
+        <label for="contato">Contato</label>
+        <input type="text" name="contato" id="contato"placeholder="86/84/82******" required>
+        <label for="data_registro">Data do Registro</label>
+        <input type="date" name="data_registro" id="data_registro" required>
+        <button type="submit">Cadastrar Usuário 👥</button>
+      </form>
+      <div id="mensagemUsuario"></div>
+    </section>
+
+    <!-- Aba Empréstimos -->
+    <section id="emprestimos" class="aba">
+      <h2>Registrar Empréstimo 🔄</h2>
+      <form action="cadastrar_emprestimo.php" method="POST">
+        <label for="id_emprestimo">ID do Livro Emprestado</label>
+        <input type="number" name="id" id="id_emprestimo" placeholder="ID único "required>
+        <label for="livro_emprestado">Livro Emprestado</label>
+        <input type="text" name="livro_emprestado" id="livro_emprestado" placeholder="Matematica"required>
+        <label for="responsavel">Nome do Responsável</label>
+        <input type="text" name="Responsavel" id="responsavel"placeholder="Licy" required>
+        <label for="data_emprestimo">Data do Empréstimo</label>
+        <input type="date" name="data_emprestimo" id="data_emprestimo" required>
+        <label for="data_prevista_devolucao">Data Prevista para Devolução</label>
+        <input type="date" name="data_prevista_devolucao" id="data_prevista_devolucao" required>
+        <label for="data_devolucao">Data Real da Devolução</label>
+        <input type="date" name="data_devolucao" id="data_devolucao" required>
+        <button type="submit">Emprestar Livro</button>
+      </form>
+      <div id="mensagemEmprestimo"></div>
+    </section>
+
+    <!-- Aba Relatórios -->
+    <section id="relatorios" class="aba" aria-labelledby="titulo-relatorios">
+      <h2 id="titulo-relatorios">Relatórios 📈</h2>
+        <ul>
+            <li><a href="dashboard.php">Dashboard</a></li>
+            <li><a href="relatorio.php">Relatorio<a></li>
+            <li><a href="historico_emprestimos_usuario.php">Historico<a></li>
+        </ul>
+   
+      <div id="relatorioResultado"></div>
+    </section>
+  </main>
+  <footer>
+    <p>
+      &copy; UnISCED 2025<br>
+      Sistema de Gestão de Biblioteca<br>
+      Desenvolvido por Carlito Jorge Norberto<br>
+      Estudante do Curso de Gestão de Sistemas de Informação - 2&deg; Ano
+    </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
